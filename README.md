@@ -6,5 +6,23 @@ Aloha! Today I would like to introduce my startup website, X Grid O. Have you ev
 - Unique login name
 - Colour changing 
 - PvP(TBD)
+- Game count(wins and loses)
+- Player log in chat
 
 ## Technologies 
+1. HTML
+    - This will organize the look of the website for the login/create page as well as the main page where users will play the game.
+2. CSS
+    - This will animate the game itself with appearing symbols the user places as well as the colour they designate them to be.
+3. JavaScript
+    - This will allow users to click on the create tab to make their account for the first time. It will also allow them to log into an account they previously made. Users can also change the colour of their tiles for the game.
+4. Web service
+    - This will call on another server to get the time so no matter what device someone is playing on, they'll be aware of how long they've been playing
+5. Authentication
+    - This will allow users to create a unique log in with a username and password. No email required.
+6. Database persistence
+    - This will keep track of the users scores when they log into their account to play.
+7. Websocket
+    - This will be a real time log of users who are logging in to play.
+8. Web framework
+    - This will be the icing on the cake that makes the website user friendly as well as visually pleasing.
