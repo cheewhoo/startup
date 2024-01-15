@@ -1,6 +1,6 @@
 # startup specification
 ## Elevator Pitch
-Aloha! Today I would like to introduce my startup website, X Grid O. Have you ever wanted to play tick tack toe but no one is available to play? Well X Grid O allows you to play tick tack toe against a program so you can hone your skills for the next time you see your friends. X Grid O is a free to play application but as it's poppularity grows, I plan to release a online multiplayer option which will cost $5 to have permanant access 
+Aloha! Today I would like to introduce my startup website, X Grid O. Have you ever wanted to play tick tack toe but no one is available to play? Well X Grid O allows you to play tick tack toe against a program so you can hone your skills for the next time you see your friends. X Grid O is a free to play application but as it's poppularity grows, I plan to release a online multiplayer option which will cost $5 to have permanant access.
 
 ## Key Features
 - Unique login name
@@ -26,3 +26,6 @@ Aloha! Today I would like to introduce my startup website, X Grid O. Have you ev
     - This will be a real time log of users who are logging in to play.
 8. Web framework
     - This will be the icing on the cake that makes the website user friendly as well as visually pleasing.
+
+## Project Design
+![Google Doc with pic of layout](https://docs.google.com/document/d/1MLTb4ieEzKRLLNOEhVnQ24lTkpQVEoI6CMVzhuzESto/edit)
