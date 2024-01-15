@@ -28,4 +28,4 @@ Aloha! Today I would like to introduce my startup website, X Grid O. Have you ev
     - This will be the icing on the cake that makes the website user friendly as well as visually pleasing.
 
 ## Project Design
-![Google Doc with pic of layout](https://docs.google.com/document/d/1MLTb4ieEzKRLLNOEhVnQ24lTkpQVEoI6CMVzhuzESto/edit)
+![Alt text](20240115_115735.jpg)
