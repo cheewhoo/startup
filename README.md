@@ -32,10 +32,10 @@ Aloha! Today I would like to introduce my startup website, X Grid O. Have you ev
 
 ## HTML Deliverable
 For this section of my startup I:
-    * Created 4 HTML pages. The main page is where you log in, the account page is where you can create an account, the play page is where xgrido can be played, and the scores page is where players can see their win/lose counts as well as how long they've been playing and the weather in their area.
-    * For each page I also created links where if a player clicks login or create account they will be directed to either the play or account pages. There is also links at the top for players to click on if they want to direct themselves that way.
-    * Each time a player logs in, wins, or loses, a text will notify all current players of their status.
-    * I have a place holder image that will later change based on the weather that is in the current area of the player
-    * The login information will be stored along with the players win/lose count so everytime they log in they can keep track.
-    * The websocket will be real time log in and win/lose notifications of other players.
+* Created 4 HTML pages. The main page is where you log in, the account page is where you can create an account, the play page is where xgrido can be played, and the scores page is where players can see their win/lose counts as well as how long they've been playing and the weather in their area.
+* For each page I also created links where if a player clicks login or create account they will be directed to either the play or account pages. There is also links at the top for players to click on if they want to direct themselves that way.
+* Each time a player logs in, wins, or loses, a text will notify all current players of their status.
+* I have a place holder image that will later change based on the weather that is in the current area of the player
+* The login information will be stored along with the players win/lose count so everytime they log in they can keep track.
+* The websocket will be real time log in and win/lose notifications of other players.
     
