@@ -15,7 +15,7 @@ Aloha! Today I would like to introduce my startup website, X Grid O. Have you ev
 2. CSS
     - This will animate the game itself with appearing symbols the user places as well as the colour they designate them to be.
 3. JavaScript
-    - This will allow users to click on the create tab to make their account for the first time. It will also allow them to log into an account they previously made. Users can also change the colour of their tiles for the game.
+    - This will allow users to click on the create tab to make their account for the first time. It will also allow them to log into an account they previously made.
 4. Web service
     - This will call on another server to get the time so no matter what device someone is playing on, they'll be aware of how long they've been playing
 5. Authentication
