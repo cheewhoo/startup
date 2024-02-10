@@ -20,6 +20,10 @@ header {
     background: blue;
     display: flex;
     flex-direction: row;
+    h1{position: relative;
+    left: 40px;
+    top: 5px;
+}
   }
 
   footer {
