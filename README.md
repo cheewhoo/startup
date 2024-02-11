@@ -43,4 +43,7 @@ For this section of my startup I:
 For the CSS section of my startup I:
 * Seperated the Header and Footer sections to take up a small part of the page with the main taking up majority of it
 * With the help of bootstrap and some other CSS I was able to make the navigation bar elements to look like big buttons for users to press. I also changed the color to make them stand out from the blue header section.
-* 
+* Overall the website works wih all sizes.
+* Everything has been spaced out to not make the website looked cluttered.
+* There are two fonts used, one for the main welcome page and the other is for the normal sub text.
+* Image has been centered on the scores page to draw useres attention to the weather without needing to look at the text below.
