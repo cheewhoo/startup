@@ -46,6 +46,12 @@ header {
     right: 0;
 }
 
+.start-button {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
 
   footer {
     background: black;
