@@ -23,6 +23,7 @@ header {
     h1{position: relative;
     left: 40px;
     top: 5px;
+    
 }
   }
 
@@ -38,6 +39,9 @@ header {
         margin-bottom: 40px;
         font-size: 100px;
       }
+      h2{
+        color:black
+    }
       
   }
 
