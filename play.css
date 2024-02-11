@@ -39,6 +39,12 @@ header {
       }
       
   }
+  .players {
+    position: fixed;
+    top: 5;
+    right: 0;
+}
+
 
   footer {
     background: black;
