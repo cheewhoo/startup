@@ -38,4 +38,9 @@ For this section of my startup I:
 * I have a place holder image that will later change based on the weather that is in the current area of the player
 * The login information will be stored along with the players win/lose count so everytime they log in they can keep track.
 * The websocket will be real time log in and win/lose notifications of other players.
-    
+
+## CSS Deliverable
+For the CSS section of my startup I:
+* Seperated the Header and Footer sections to take up a small part of the page with the main taking up majority of it
+* With the help of bootstrap and some other CSS I was able to make the navigation bar elements to look like big buttons for users to press. I also changed the color to make them stand out from the blue header section.
+* 
