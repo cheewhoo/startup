@@ -32,6 +32,7 @@ header {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: rgb(198, 18, 18);
     h1 {
         font-family: luminari, fantasy;
         margin-bottom: 40px;
@@ -80,9 +81,6 @@ header {
     border: 1px solid #4CAF50;
     border-radius: 5px;
     margin-right: 10px;
-    position: relative;
-    left: 40px;
-    top: 12px;
 
 
   }
