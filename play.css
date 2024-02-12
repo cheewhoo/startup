@@ -27,11 +27,12 @@ header {
   }
 
   main {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    flex: 1;
     background-color: rgb(198, 18, 18);
     h1 {
         font-family: luminari, fantasy;
@@ -41,9 +42,9 @@ header {
       
   }
   .players {
-    position: fixed;
-    top: 5;
-    right: 0;
+    position: absolute;
+    top: 45%; 
+    right: 5%; 
     color:black
 }
 
