@@ -10,3 +10,9 @@ this isn't a quote
 1. first listed item
    -this is next listed
     -another
+
+![alt text](20240223_180142.jpg)
+![alt text](20240223_180146.jpg)
+![alt text](20240223_180150.jpg)
+![alt text](20240223_180154.jpg)
+![alt text](20240223_180201.jpg)
