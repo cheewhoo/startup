@@ -37,80 +37,28 @@
           </div>
         </ul>
         <br />
-        <div class="xgrido">
+        <div id="game-container">
+          <div class="xgrido">
             <table>
-              <tr>
-                <td>
-                  <button id="cell-0">
-                    <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                      <rect x="10" y="10" width="80" height="80" fill="transparent" stroke="white" stroke-width="10"/>
-                    </svg>
-                  </button>
-                </td>
-                <td>
-                  <button id="cell-1">
-                    <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                      <rect x="10" y="10" width="80" height="80" fill="transparent" stroke="white" stroke-width="10"/>
-                    </svg>
-                  </button>
-                </td>
-                <td>
-                  <button id="cell-2">
-                    <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                      <rect x="10" y="10" width="80" height="80" fill="transparent" stroke="white" stroke-width="10"/>
-                    </svg>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <button id="cell-3">
-                    <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                      <rect x="10" y="10" width="80" height="80" fill="transparent" stroke="white" stroke-width="10"/>
-                    </svg>
-                  </button>
-                </td>
-                <td>
-                  <button id="cell-4">
-                    <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                      <rect x="10" y="10" width="80" height="80" fill="transparent" stroke="white" stroke-width="10"/>
-                    </svg>
-                  </button>
-                </td>
-                <td>
-                  <button id="cell-5">
-                    <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                      <rect x="10" y="10" width="80" height="80" fill="transparent" stroke="white" stroke-width="10"/>
-                    </svg>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <button id="cell-6">
-                    <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                      <rect x="10" y="10" width="80" height="80" fill="transparent" stroke="white" stroke-width="10"/>
-                    </svg>
-                  </button>
-                </td>
-                <td>
-                  <button id="cell-7">
-                    <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                      <rect x="10" y="10" width="80" height="80" fill="transparent" stroke="white" stroke-width="10"/>
-                    </svg>
-                  </button>
-                </td>
-                <td>
-                  <button id="cell-8">
-                    <svg aria-hidden="true" viewBox="0 0 100 100" height="100" width="100">
-                      <rect x="10" y="10" width="80" height="80" fill="transparent" stroke="white" stroke-width="10"/>
-                    </svg>
-                  </button>
-                </td>
-              </tr>
+                <tr>
+                    <td><button id="cell-0" class="cell"></button></td>
+                    <td><button id="cell-1" class="cell"></button></td>
+                    <td><button id="cell-2" class="cell"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="cell-3" class="cell"></button></td>
+                    <td><button id="cell-4" class="cell"></button></td>
+                    <td><button id="cell-5" class="cell"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="cell-6" class="cell"></button></td>
+                    <td><button id="cell-7" class="cell"></button></td>
+                    <td><button id="cell-8" class="cell"></button></td>
+                </tr>
             </table>
-          </div>
-          <button type="submit" class="start-button">start game</button>
+        </div>
+        </div>
+        <button type="button" class="start-button" id="start-button">Start Game</button>
     </main>
     <footer>
         <hr />
@@ -118,6 +66,7 @@
         <br />
         <a href="https://github.com/cheewhoo/startup/tree/main">GitHub</a>
       </footer>
-      <script src="page2.js"></script>
+      <script src="ticktacktoe.js"></script>
+      <script src="play.js"></script>
     </body>
     </html>
