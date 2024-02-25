@@ -35,15 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkDraw() {
     return [...cells].every(cell => cell.textContent !== '') && !checkWin();
 }
-    function endGame() {
-        if (checkWin()) {
-            alert(currentPlayer === 'X' ? 'X wins!' : 'O wins!');
-        } else if (checkDraw()) {
-            alert("It's a draw!");
-        }
-        currentPlayer = null;
-        cells.forEach(cell => cell.removeEventListener('click', cellClickHandler));
+    // Function to end the game
+function endGame(winner) {
+    let notification = document.querySelector('.notification');
+    if (winner) {
+        notification.innerHTML = `<li class="player-name">${winner} wins!</li>`;
+    } else {
+        notification.innerHTML = `<li class="player-name">It's a draw!</li>`;
     }
+    // Reset current player and remove cell click event listeners
+    currentPlayer = null;
+    cells.forEach(cell => cell.removeEventListener('click', cellClickHandler));
+}
+
     document.getElementById('start-button').addEventListener('click', function() {
         initGame();
     });
