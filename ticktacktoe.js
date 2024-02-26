@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function endGame(winner) {
     let notification = document.querySelector('.notification');
     if (winner) {
-        notification.innerHTML = `<li class="player-name">${winner} wins!</li>`;
+        notification.innerHTML = `<li class="player-name">${winner}</li>`;
     } else {
         notification.innerHTML = `<li class="player-name">It's a draw!</li>`;
     }

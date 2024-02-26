@@ -60,6 +60,10 @@ header {
   margin-top: 10px;
   margin-left: 10px;
 }
+.restart-button {
+  margin-top: 15px;
+  margin-left: 10px;
+}
 
 .cell {
   width: 120px; 
