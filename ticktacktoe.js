@@ -58,6 +58,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function endGame(message) {
+        if (currentPlayer === 'X') {
+            let winsX = localStorage.getItem('winsX') || 0;
+            winsX++;
+            localStorage.setItem('winsX', winsX);
+        } else if (currentPlayer === 'O') {
+            let lossesO = localStorage.getItem('lossesO') || 0;
+            lossesO++;
+            localStorage.setItem('lossesO', lossesO);
+        }
         let notification = document.querySelector('.notification');
         notification.textContent = message;
         currentPlayer = null;
