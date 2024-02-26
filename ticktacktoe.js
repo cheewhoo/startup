@@ -17,7 +17,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 endGame(currentPlayer === 'X' ? 'X wins!' : 'O wins!');
             } else if (checkDraw()) {
                 endGame("It's a draw!"); 
+            } else{
+                computerTurn();
             }
+        }
+    }
+
+    function computerTurn() {
+        let emptyCells = [];
+        cells.forEach((cell, index) => {
+            if (!cell.textContent) {
+                emptyCells.push(index);
+            }
+        });
+        const randomIndex = Math.floor(Math.random() * emptyCells.length);
+        const randomCellIndex = emptyCells[randomIndex];
+        cells[randomCellIndex].textContent = currentPlayer;
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; 
+        if (checkWin()) {
+            endGame(currentPlayer === 'X' ? 'X wins!' : 'O wins!');
+        } else if (checkDraw()) {
+            endGame("It's a draw!");
         }
     }
 
