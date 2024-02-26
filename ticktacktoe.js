@@ -58,20 +58,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function endGame(message) {
-        if (currentPlayer === 'X') {
-            let winsX = localStorage.getItem('winsX') || 0;
-            winsX++;
-            localStorage.setItem('winsX', winsX);
-        } else if (currentPlayer === 'O') {
-            let lossesO = localStorage.getItem('lossesO') || 0;
-            lossesO++;
-            localStorage.setItem('lossesO', lossesO);
+        let playerName = document.querySelector('.player-name').textContent;
+        let wins = localStorage.getItem(`${playerName}_wins`) || 0;
+        wins++;
+        localStorage.setItem(`${playerName}_wins`, wins);
+        if (currentPlayer === 'O') {
+            let losses = localStorage.getItem(`${playerName}_losses`) || 0;
+            losses++;
+            localStorage.setItem(`${playerName}_losses`, losses);
         }
         let notification = document.querySelector('.notification');
         notification.textContent = message;
         currentPlayer = null;
         cells.forEach(cell => cell.removeEventListener('click', cellClickHandler));
     }
+    
 
     function restartGame() {
         cells.forEach(cell => {
