@@ -3,23 +3,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let cells; 
 
     function initGame() {
-        currentPlayer = 'X';
+        currentPlayer = 'X'; 
         cells = document.querySelectorAll('.cell');
         cells.forEach(cell => cell.addEventListener('click', cellClickHandler));
     }
 
     function cellClickHandler(event) {
-    const cell = event.target;
-    if (!cell.textContent && currentPlayer) { 
-        cell.textContent = currentPlayer;
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        if (checkWin()) {
-            endGame(currentPlayer === 'X' ? 'X wins!' : 'O wins!');
-        } else if (checkDraw()) {
-            endGame("It's a draw!");
+        const cell = event.target;
+        if (!cell.textContent && currentPlayer) { 
+            cell.textContent = currentPlayer; 
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; 
+            if (checkWin()) {
+                endGame(currentPlayer === 'X' ? 'X wins!' : 'O wins!');
+            } else if (checkDraw()) {
+                endGame("It's a draw!"); 
+            }
         }
     }
-}
 
     function checkWin() {
         const winConditions = [
@@ -32,23 +32,33 @@ document.addEventListener('DOMContentLoaded', function() {
         );
     }
 
+
     function checkDraw() {
-    return [...cells].every(cell => cell.textContent !== '') && !checkWin();
-}
-    // Function to end the game
-function endGame(winner) {
-    let notification = document.querySelector('.notification');
-    if (winner) {
-        notification.innerHTML = `<li class="player-name">${winner}</li>`;
-    } else {
-        notification.innerHTML = `<li class="player-name">It's a draw!</li>`;
+        return [...cells].every(cell => cell.textContent !== '') && !checkWin();
     }
-    // Reset current player and remove cell click event listeners
-    currentPlayer = null;
-    cells.forEach(cell => cell.removeEventListener('click', cellClickHandler));
-}
+
+    function endGame(message) {
+        let notification = document.querySelector('.notification');
+        notification.textContent = message;
+        currentPlayer = null;
+        cells.forEach(cell => cell.removeEventListener('click', cellClickHandler));
+    }
+
+    function restartGame() {
+        cells.forEach(cell => {
+            cell.textContent = '';
+        });
+        currentPlayer = 'X';
+        initGame(); 
+        let notification = document.querySelector('.notification');
+        notification.innerHTML = ''; 
+    }
+
 
     document.getElementById('start-button').addEventListener('click', function() {
-        initGame();
+        initGame(); 
     });
+
+
+    document.getElementById('restart-button').addEventListener('click', restartGame);
 });
