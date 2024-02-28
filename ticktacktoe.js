@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const cell = event.target;
         if (!cell.textContent && currentPlayer) { 
             cell.textContent = currentPlayer; 
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; 
             if (checkWin()) {
-                endGame(currentPlayer === 'X' ? 'X wins!' : 'O wins!');
+                endGame(`${currentPlayer} wins!`);
             } else if (checkDraw()) {
                 endGame("It's a draw!"); 
-            } else{
+            } else {
+                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                 computerTurn();
             }
         }
     }
-
+    
     function computerTurn() {
         let emptyCells = [];
         cells.forEach((cell, index) => {
@@ -33,13 +33,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const randomIndex = Math.floor(Math.random() * emptyCells.length);
         const randomCellIndex = emptyCells[randomIndex];
         cells[randomCellIndex].textContent = currentPlayer;
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; 
         if (checkWin()) {
-            endGame(currentPlayer === 'X' ? 'X wins!' : 'O wins!');
+            endGame(`${currentPlayer} wins!`);
         } else if (checkDraw()) {
             endGame("It's a draw!");
+        } else {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
         }
     }
+    
 
     function checkWin() {
         const winConditions = [
