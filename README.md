@@ -17,7 +17,7 @@ Aloha! Today I would like to introduce my startup website, X Grid O. Have you ev
 3. JavaScript
     - This will allow users to click on the create tab to make their account for the first time. It will also allow them to log into an account they previously made.
 4. Web service
-    - This will call on another server to get the time so no matter what device someone is playing on, they'll be aware of how long they've been playing
+    - This will call on another server to get the temperature
 5. Authentication
     - This will allow users to create a unique log in with a username and password. No email required.
 6. Database persistence
