@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let cells; 
 
     setInterval(() => {
-        const players = ['Alice', 'Bob', 'Charlie']; // Add more player names as needed
+        const players = ['Lee','Billy','Max','James','Alison','Shaniqua']; // Add more player names as needed
         const randomPlayerIndex = Math.floor(Math.random() * players.length);
         const randomPlayer = players[randomPlayerIndex];
         const notification = document.querySelector('.notification');
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const listItem = document.createElement('li');
         listItem.textContent = message;
         notification.appendChild(listItem);
-    }, 5000); 
+    }, 4000); 
     
     function initGame() {
         currentPlayer = 'X'; 
