@@ -2,6 +2,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentPlayer; 
     let cells; 
 
+    setInterval(() => {
+        const players = ['Alice', 'Bob', 'Charlie']; // Add more player names as needed
+        const randomPlayerIndex = Math.floor(Math.random() * players.length);
+        const randomPlayer = players[randomPlayerIndex];
+        const notification = document.querySelector('.notification');
+        const message = `${randomPlayer} won!`;
+        const listItem = document.createElement('li');
+        listItem.textContent = message;
+        notification.appendChild(listItem);
+    }, 5000); 
+    
     function initGame() {
         currentPlayer = 'X'; 
         cells = document.querySelectorAll('.cell');
