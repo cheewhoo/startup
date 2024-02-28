@@ -47,3 +47,10 @@ For the CSS section of my startup I:
 * Everything has been spaced out to not make the website looked cluttered.
 * There are two fonts used, one for the main welcome page and the other is for the normal sub text.
 * Image has been centered on the scores page to draw useres attention to the weather without needing to look at the text below.
+
+## JS Deliverable
+For the JS section of my startup I:
+* Stored users information in a local database to keep track of their scores
+* I updated the game log on the play page to update whenever a user wins or loses a game. That log will alos later call on websocket to update with other users wins
+* The xgrido game is now fully playable against the computer.
+* All data is stored even after player exits the website
