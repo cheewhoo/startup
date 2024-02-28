@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let playerName = document.querySelector('.player-name').textContent;
         let wins = localStorage.getItem(`${playerName}_wins`) || 0;
         wins++;
+        message = `${playerName} wins!`;
         localStorage.setItem(`${playerName}_wins`, wins);
         if (currentPlayer === 'O') {
             let losses = localStorage.getItem(`${playerName}_losses`) || 0;
