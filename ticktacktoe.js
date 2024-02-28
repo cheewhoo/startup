@@ -57,22 +57,32 @@ document.addEventListener('DOMContentLoaded', function() {
         return [...cells].every(cell => cell.textContent !== '') && !checkWin();
     }
 
-    function endGame(message) {
+    function endGame() {
         let playerName = document.querySelector('.player-name').textContent;
         let wins = localStorage.getItem(`${playerName}_wins`) || 0;
-        wins++;
-        message = `${playerName} wins!`;
-        localStorage.setItem(`${playerName}_wins`, wins);
-        if (currentPlayer === 'O') {
-            let losses = localStorage.getItem(`${playerName}_losses`) || 0;
+        let losses = localStorage.getItem(`${playerName}_losses`) || 0;
+        let message = '';
+        if (currentPlayer === 'X' && checkWin()) {
+            message = `${playerName} wins!`;
+            wins++;
+            localStorage.setItem(`${playerName}_wins`, wins);
+        } else if (currentPlayer === 'O' && checkWin()) {
+            message = `${playerName} lost!`;
             losses++;
             localStorage.setItem(`${playerName}_losses`, losses);
+        } else if (checkDraw()) {
+            message = "It's a draw!";
         }
-        let notification = document.querySelector('.notification');
-        notification.textContent = message;
+    
+        if (message !== '') {
+            let notification = document.querySelector('.notification');
+            notification.textContent = message;
+        }
+    
         currentPlayer = null;
         cells.forEach(cell => cell.removeEventListener('click', cellClickHandler));
     }
+    
     
 
     function restartGame() {
