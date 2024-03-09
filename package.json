@@ -1,0 +1,15 @@
+{
+  "name": "startup-1",
+  "version": "1.0.0",
+  "description": "Aloha! Today I would like to introduce my startup website, X Grid O. Have you ever wanted to play tick tack toe but no one is available to play? Well X Grid O allows you to play tick tack toe against a program so you can hone your skills for the next time you see your friends. X Grid O is a free to play application but as it's poppularity grows, I plan to release a online multiplayer option which will cost $5 to have permanant access.",
+  "main": "Node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
