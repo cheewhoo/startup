@@ -4,9 +4,21 @@ document.addEventListener('DOMContentLoaded', function() {
     let losses = localStorage.getItem(`${playerName}_losses`) || 0;
     document.getElementById('wins').textContent = `Wins: ${wins}`;
     document.getElementById('losses').textContent = `Losses: ${losses}`;
-    let randomWeather = getRandomNumber(0, 100);
-    document.getElementById('weather').textContent = `Temperature: ${randomWeather} F`;
+    fetchWeatherData().then(data => {
+        let temperature = data.properties.periods[0].temperature;
+        document.getElementById('weather').textContent = `Temperature: ${temperature}°F`;
+    }).catch(error => {
+        console.error('Error fetching weather data:', error);
+    });
 });
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+
+async function fetchWeatherData() {
+    const apiUrl = 'https://api.weather.gov/gridpoints/SLC/100,192/forecast';
+    
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+        throw new Error('Failed to fetch weather data');
+    }
+    
+    return response.json();
 }
