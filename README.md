@@ -57,6 +57,6 @@ For the JS section of my startup I:
 
 ## startup service
 For the services on my startup I:
-* created a endpoint to grab the temperature of provo on my front end
+* called third party to grab the temperature of provo on my front end
 * created a end point on my front and backend to retrieve and store scores of players
 * opened the server to port 4000
