@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('losses').textContent = `Losses: ${losses}`;
     fetchWeatherData().then(data => {
         let temperature = data.properties.periods[0].temperature;
-        document.getElementById('weather').textContent = `SLC Temperature: ${temperature}°F`;
+        document.getElementById('weather').textContent = `Provo Temperature: ${temperature}°F`;
     }).catch(error => {
         console.error('Error fetching weather data:', error);
     });

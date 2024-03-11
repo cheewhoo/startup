@@ -54,3 +54,9 @@ For the JS section of my startup I:
 * I updated the game log on the play page to update whenever a user wins or loses a game. That log will alos later call on websocket to update with other users wins
 * The xgrido game is now fully playable against the computer.
 * All data is stored even after player exits the website
+
+## startup service
+For the services on my startup I:
+* created a endpoint to grab the temperature of provo on my front end
+* created a end point on my front and backend to retrieve and store scores of players
+* opened the server to port 4000
