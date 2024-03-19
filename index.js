@@ -1,7 +1,44 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const DB = require('./database.js');
 const PORT = process.env.PORT || 4000;
+
+
+apiRouter.post('/auth/create', async (req, res) => {
+    if (await DB.getUser(req.body.username)) {
+      res.status(409).send({ msg: 'Existing user' });
+    } else {
+      const user = await DB.createUser(req.body.username, req.body.password);
+  
+      // Set the cookie
+      setAuthCookie(res, user.token);
+  
+      res.send({
+        id: user._id,
+      });
+    }
+  });
+  
+  // GetAuth token for the provided credentials
+  apiRouter.post('/auth/login', async (req, res) => {
+    const user = await DB.getUser(req.body.username);
+    if (user) {
+      if (await bcrypt.compare(req.body.password, user.password)) {
+        setAuthCookie(res, user.token);
+        res.send({ id: user._id });
+        return;
+      }
+    }
+    res.status(401).send({ msg: 'Unauthorized' });
+  });
+  
+
+
+
+
+
+
 
 // Dummy database for storing player scores
 const playerScores = {};
