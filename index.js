@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 app.set('trust proxy', true);
+const authCookieName = 'token';
 
 // Create a new route for saving scores
 app.post('/scores', async (req, res) => {
@@ -20,7 +21,7 @@ app.post('/scores', async (req, res) => {
         // Add the score to the database
         await DB.addScore({ username, wins, losses });
         
-        res.status(200).json({ msg: 'Scores updated successfully' });
+        res.status(200).send({ msg: 'Scores updated successfully' });
     } catch (error) {
         console.error('Error saving scores:', error);
         res.status(500).json({ error: 'Internal server error' });
@@ -62,6 +63,18 @@ apiRouter.post('/auth/create', async (req, res) => {
     res.sendFile('index.html', { root: 'public' });
   });
 
+// setAuthCookie in the HTTP response
+function setAuthCookie(res, authToken) {
+  res.cookie(authCookieName, authToken, {
+    secure: true,
+    httpOnly: true,
+    sameSite: 'strict',
+  });
+}
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
 
 
@@ -98,8 +111,3 @@ apiRouter.post('/auth/create', async (req, res) => {
 //         res.status(404).json({ success: false, message: 'Player not found' });
 //     }
 // });
-
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});

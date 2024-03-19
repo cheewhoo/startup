@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (!response.ok) {
             throw new Error('Failed to fetch player scores');
         }
-
+        console.log(response)
         const scores = await response.json();
         const { wins, losses } = scores;
         document.getElementById('wins').textContent = `Wins: ${wins}`;
