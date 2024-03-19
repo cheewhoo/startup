@@ -1,15 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let playerName = localStorage.getItem('username');
-    let wins = localStorage.getItem(`${playerName}_wins`) || 0;
-    let losses = localStorage.getItem(`${playerName}_losses`) || 0;
-    document.getElementById('wins').textContent = `Wins: ${wins}`;
-    document.getElementById('losses').textContent = `Losses: ${losses}`;
-    fetchWeatherData().then(data => {
-        let temperature = data.properties.periods[0].temperature;
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        // Fetch player scores from the server
+        const response = await fetch('/scores', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch player scores');
+        }
+
+        const scores = await response.json();
+        const { wins, losses } = scores;
+        document.getElementById('wins').textContent = `Wins: ${wins}`;
+        document.getElementById('losses').textContent = `Losses: ${losses}`;
+
+        // Fetch weather data
+        const weatherData = await fetchWeatherData();
+        const temperature = weatherData.properties.periods[0].temperature;
         document.getElementById('weather').textContent = `Provo Temperature: ${temperature}°F`;
-    }).catch(error => {
-        console.error('Error fetching weather data:', error);
-    });
+    } catch (error) {
+        console.error('Error:', error);
+    }
 });
 
 async function fetchWeatherData() {

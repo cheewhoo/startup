@@ -8,7 +8,7 @@ document.getElementById('newlogin').addEventListener('submit', async function(ev
     }
 
     try {
-        const response = await fetch('/auth/create', {
+        const response = await fetch('/api/auth/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

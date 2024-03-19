@@ -43,5 +43,10 @@ async function createUser(username, password) {
 function addScore(score) {
   scoreCollection.insertOne(score);
 }
-
+module.exports = {
+  getUser,
+  getUserByToken,
+  createUser,
+  addScore,
+};
 //export obj with methods inside
