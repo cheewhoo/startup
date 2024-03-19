@@ -28,6 +28,12 @@ app.post('/scores', async (req, res) => {
     }
 });
 
+app.get('/score/:playerName', async (req, res)=>{
+let name = req.params.playerName;
+let user = await DB.collectscores(name);
+res.status(200).json(user);
+})
+
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 

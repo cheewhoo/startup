@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', async function() {
+    let playerName = localStorage.getItem('username');
+    
     try {
         // Fetch player scores from the server
-        const response = await fetch('/scores', {
+        const response = await fetch(`/score/${playerName}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -11,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (!response.ok) {
             throw new Error('Failed to fetch player scores');
         }
-        console.log(response)
+
         const scores = await response.json();
         const { wins, losses } = scores;
         document.getElementById('wins').textContent = `Wins: ${wins}`;

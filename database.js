@@ -34,10 +34,18 @@ async function createUser(username, password) {
     username:username,
     password: passwordHash,
     token: uuid.v4(),
+    wins: 0,
+    losses: 0
   };
   await userCollection.insertOne(user);
 
   return user;
+}
+
+function collectscores(username){
+  userCollection.findOne(
+    {username:username}
+)
 }
 
 function addScore(score) {
@@ -48,5 +56,6 @@ module.exports = {
   getUserByToken,
   createUser,
   addScore,
+  collectscores
 };
 //export obj with methods inside
