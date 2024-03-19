@@ -2,25 +2,30 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     event.preventDefault(); 
     var username = document.getElementById('name').value;
     var password = document.getElementById('password').value;
-    
     if(username.trim() === '' || password.trim() === '') {
         alert("Please enter both username and password.");
         return;
     }
 
     try {
-        // Call the function to get the user from the database
-        const user = await getUser(username);
+        const response = await fetch('/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
 
-        // If user exists and password matches
-        if (user && await bcrypt.compare(password, user.password)) {
+        if (response.ok) {
+            const data = await response.json();
             localStorage.setItem('username', username); 
             window.location.href = 'play.html';
         } else {
-            alert("Account does not exist. Please create an account");
+            const errorData = await response.json();
+            alert(errorData.msg || 'Login failed');
         }
     } catch (error) {
-        console.error("Error:", error);
-        alert("An error occurred. Please try again later.");
+        console.error('Error during login:', error);
+        alert('An error occurred during login. Please try again later.');
     }
 });
