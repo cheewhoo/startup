@@ -1,11 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const app = express();
 const DB = require('./database.js');
 const PORT = process.env.PORT || 4000;
 app.use(express.static('public'));
 app.use(bodyParser.json());
+app.use(express.json());
+app.use(cookieParser());
+app.set('trust proxy', true);
 
 // Create a new route for saving scores
 app.post('/scores', async (req, res) => {
@@ -51,7 +55,7 @@ apiRouter.post('/auth/create', async (req, res) => {
         return;
       }
     }
-    res.status(401).send({ msg: 'Unauthorized' });
+    res.status(401).send({ msg: 'Please create an account' });
   });
   
   app.use((_req, res) => {
