@@ -67,11 +67,11 @@ function updatelosses(username){
  )
 }
 
-function grabscore(username){
-  score = userCollection.findOne({ username: username });
+async function grabscore(username){
+  score = await userCollection.findOne({ "username": username });
   wins = score.wins
   losses = score.losses
-  return wins, losses
+  return {wins: wins, losses: losses}
 }
 
 module.exports = {
@@ -82,5 +82,6 @@ module.exports = {
   collectscores,
   updatelosses,
   updatewins,
+  grabscore
 };
 //export obj with methods inside

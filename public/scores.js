@@ -9,26 +9,15 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         body: JSON.stringify({username: playerName})
     });
-    const score_response = await response.JSON
-    console.log(score_response)
-    try {
+    const score_response = await response.json()
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch player scores');
-        }
-
-        const scores = await response.json();
-        const { wins, losses } = scores;
-        document.getElementById('wins').textContent = `Wins: ${wins}`;
-        document.getElementById('losses').textContent = `Losses: ${losses}`;
+    document.getElementById('wins').textContent = `Wins: ${score_response.wins}`;
+    document.getElementById('losses').textContent = `Losses: ${score_response.losses}`;
 
         // Fetch weather data
         const weatherData = await fetchWeatherData();
         const temperature = weatherData.properties.periods[0].temperature;
-        document.getElementById('weather').textContent = `Provo Temperature: ${temperature}°F`;
-    } catch (error) {
-        console.error('Error:', error);
-    }
+        document.getElementById('weather').textContent = `Provo Temperature: ${temperature}°F`; 
 });
 
 async function fetchWeatherData() {

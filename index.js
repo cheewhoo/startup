@@ -77,6 +77,13 @@ apiRouter.post('/auth/create', async (req, res) => {
     }
   })
 
+  apiRouter.post('/getscores', async(req, res) =>{
+    const user = (req.body.username);
+    let scores = await DB.grabscore(user)
+    console.log(scores)
+    res.send(scores)
+  })
+
   app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
   });
