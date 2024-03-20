@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', async function() {
     let playerName = localStorage.getItem('username');
     
+    const response = await fetch(`/api/getscores`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({username: playerName})
+    });
+    const score_response = await response.JSON
+    console.log(score_response)
     try {
-        // Fetch player scores from the server
-        const response = await fetch(`/score/${playerName}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
 
         if (!response.ok) {
             throw new Error('Failed to fetch player scores');

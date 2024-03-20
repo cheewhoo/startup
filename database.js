@@ -51,11 +51,36 @@ function collectscores(username){
 function addScore(score) {
   scoreCollection.insertOne(score);
 }
+
+function updatewins(username){
+  console.log(username)
+  userCollection.findOneAndUpdate(
+    { "username" : username },
+    { $inc: { "wins" : 1 } }
+ )
+}
+
+function updatelosses(username){
+  userCollection.findOneAndUpdate(
+    { "username" : username },
+    { $inc: { "losses" : 1 } }
+ )
+}
+
+function grabscore(username){
+  score = userCollection.findOne({ username: username });
+  wins = score.wins
+  losses = score.losses
+  return wins, losses
+}
+
 module.exports = {
   getUser,
   getUserByToken,
   createUser,
   addScore,
-  collectscores
+  collectscores,
+  updatelosses,
+  updatewins,
 };
 //export obj with methods inside

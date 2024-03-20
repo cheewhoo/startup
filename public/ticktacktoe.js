@@ -70,18 +70,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return [...cells].every(cell => cell.textContent !== '') && !checkWin();
     }
 
-    function endGame() {
+    async function endGame() {
+        let winbool = true
         let playerName = document.querySelector('.player-name').textContent;
         let wins = localStorage.getItem(`${playerName}_wins`) || 0;
         let losses = localStorage.getItem(`${playerName}_losses`) || 0;
         let message = '';
         if (currentPlayer === 'X' && checkWin()) {
             message = `${playerName} wins!`;
-            wins++;
+            winbool = true;
             localStorage.setItem(`${playerName}_wins`, wins);
         } else if (currentPlayer === 'O' && checkWin()) {
             message = `${playerName} lost!`;
-            losses++;
+            winbool = false
             localStorage.setItem(`${playerName}_losses`, losses);
         } else if (checkDraw()) {
             message = "It's a draw!";
@@ -92,8 +93,18 @@ document.addEventListener('DOMContentLoaded', function() {
             notification.textContent = message;
         }
     
+        let inputObject = {username: playerName, win: winbool}
+        console.log(inputObject)
         currentPlayer = null;
         cells.forEach(cell => cell.removeEventListener('click', cellClickHandler));
+        const response = await fetch(`/api/updatescores`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+
+            body: JSON.stringify(inputObject)
+        });
     }
     
     

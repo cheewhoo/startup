@@ -65,6 +65,18 @@ apiRouter.post('/auth/create', async (req, res) => {
     res.status(401).send({ msg: 'Please create an account' });
   });
   
+  apiRouter.post('/updatescores', async(req, res) =>{
+    const user = (req.body.username);
+    console.log(user)
+    const win = req.body.win;
+    if (win){
+      DB.updatewins(user)
+    }
+    else{
+      DB.updatelosses(user)
+    }
+  })
+
   app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
   });
@@ -81,7 +93,6 @@ function setAuthCookie(res, authToken) {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-
 
 
 
