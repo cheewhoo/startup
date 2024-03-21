@@ -60,3 +60,8 @@ For the services on my startup I:
 * called third party to grab the temperature of provo on my front end
 * created a end point on my front and backend to retrieve and store scores of players
 * opened the server to port 4000
+
+## startup login
+* I removed the temporary database from local storage and made a real one in mongodb to hold usernames, passwords, tokens, and scores
+* I made endpoints to link the front and back end to ensure the database creates an account and updates the scores whenever someone loses or wins
+* The login page sucessfully prevents users from logging in if their isn't an account in the system
