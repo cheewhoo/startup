@@ -47,7 +47,7 @@ apiRouter.post('/auth/create', async (req, res) => {
         return;
       }
     }
-    res.status(401).send({ msg: 'Please create an account' });
+    res.status(401).send({ msg: 'Username and/or Password is incorrect. Please try again or create a new accout.' });
   });
   
   apiRouter.post('/updatescores', async(req, res) =>{
