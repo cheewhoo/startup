@@ -4,16 +4,15 @@ Aloha! Today I would like to introduce my startup website, X Grid O. Have you ev
 
 ## Key Features
 - Unique login name
-- Colour changing 
 - PvP(TBD)
 - Game count(wins and loses)
-- Player log in chat
+- Player win chat
 
 ## Technologies 
 1. HTML
     - This will organize the look of the website for the login/create page as well as the main page where users will play the game.
 2. CSS
-    - This will animate the game itself with appearing symbols the user places as well as the colour they designate them to be.
+    - This will animate the game itself with X's and O's for playing the games
 3. JavaScript
     - This will allow users to click on the create tab to make their account for the first time. It will also allow them to log into an account they previously made.
 4. Web service
@@ -27,7 +26,7 @@ Aloha! Today I would like to introduce my startup website, X Grid O. Have you ev
 8. Web framework
     - This will be the icing on the cake that makes the website user friendly as well as visually pleasing.
 
-## Project Design
+## Project Design Draft
 ![Alt text](20240115_115735.jpg)
 
 ## HTML Deliverable
