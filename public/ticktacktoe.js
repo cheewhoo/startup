@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     let currentPlayer; 
     let cells;
-    let socket = io(); // Establish WebSocket connection 
 
     // setInterval(() => {
     //     const players = ['Lee','Billy','Max','James','Alison','Shaniqua']; // Add more player names as needed
@@ -14,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //     notification.appendChild(listItem);
     // }, 4000); 
     // WebSocket event listener for gameEnded event
+
     socket.on('gameEnded', function(message) {
         const notification = document.querySelector('.notification');
         const listItem = document.createElement('li');

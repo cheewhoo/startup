@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const socketIo = require('socket.io');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const app = express();
@@ -12,6 +11,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.set('trust proxy', true);
 const authCookieName = 'token';
+
 
 
 app.get('/score/:playerName', async (req, res)=>{
