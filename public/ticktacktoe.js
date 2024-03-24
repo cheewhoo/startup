@@ -1,17 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
     let currentPlayer; 
-    let cells; 
+    let cells;
+    let socket = io(); // Establish WebSocket connection 
 
-    setInterval(() => {
-        const players = ['Lee','Billy','Max','James','Alison','Shaniqua']; // Add more player names as needed
-        const randomPlayerIndex = Math.floor(Math.random() * players.length);
-        const randomPlayer = players[randomPlayerIndex];
+    // setInterval(() => {
+    //     const players = ['Lee','Billy','Max','James','Alison','Shaniqua']; // Add more player names as needed
+    //     const randomPlayerIndex = Math.floor(Math.random() * players.length);
+    //     const randomPlayer = players[randomPlayerIndex];
+    //     const notification = document.querySelector('.notification');
+    //     const message = `${randomPlayer} won!`;
+    //     const listItem = document.createElement('li');
+    //     listItem.textContent = message;
+    //     notification.appendChild(listItem);
+    // }, 4000); 
+    // WebSocket event listener for gameEnded event
+    socket.on('gameEnded', function(message) {
         const notification = document.querySelector('.notification');
-        const message = `${randomPlayer} won!`;
         const listItem = document.createElement('li');
         listItem.textContent = message;
         notification.appendChild(listItem);
-    }, 4000); 
+    });
     
     function initGame() {
         currentPlayer = 'X'; 
@@ -126,4 +134,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     document.getElementById('restart-button').addEventListener('click', restartGame);
+    //websocket event listener
+    socket.on('gameEnd', function(message) {
+        const notification = document.querySelector('.notification');
+        notification.textContent = message;
+    });
 });

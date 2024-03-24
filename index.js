@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const socketIo = require('socket.io');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const app = express();
@@ -85,3 +86,4 @@ function setAuthCookie(res, authToken) {
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
