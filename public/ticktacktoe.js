@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     let currentPlayer; 
-    let cells;
+    let cells; 
+    let socket;
 
     // setInterval(() => {
     //     const players = ['Lee','Billy','Max','James','Alison','Shaniqua']; // Add more player names as needed
@@ -12,15 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //     listItem.textContent = message;
     //     notification.appendChild(listItem);
     // }, 4000); 
-    // WebSocket event listener for gameEnded event
-
-    socket.on('gameEnded', function(message) {
-        const notification = document.querySelector('.notification');
-        const listItem = document.createElement('li');
-        listItem.textContent = message;
-        notification.appendChild(listItem);
-    });
-    
+    configureWebSocket();
     function initGame() {
         currentPlayer = 'X'; 
         cells = document.querySelectorAll('.cell');
@@ -113,6 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             body: JSON.stringify(inputObject)
         });
+        // WebSocket broadcast when game ends
+        broadcastEvent(playerName, 'GameEndEvent', { win: winbool });
     }
     
     
@@ -134,9 +129,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     document.getElementById('restart-button').addEventListener('click', restartGame);
-    //websocket event listener
-    socket.on('gameEnd', function(message) {
-        const notification = document.querySelector('.notification');
-        notification.textContent = message;
-    });
+
+    // Functionality for peer communication using WebSocket
+
+  function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.onopen = (event) => {
+      displayMsg('system', 'game', 'connected');
+    };
+    socket.onclose = (event) => {
+      displayMsg('system', 'game', 'disconnected');
+    };
+    socket.onmessage = async (event) => {
+        const msg = JSON.parse(await event.data.text());
+        if (msg.type === 'GameEndEvent') {
+            const winStatus = msg.value.win ? 'won' : 'lost';
+            displayMsg(`${msg.from} has ${winStatus}!`);
+        } else if (msg.type === 'PlayerConnectedEvent') {
+            displayMsg(`${msg.from} connected`);
+        } else if (msg.type === 'PlayerDisconnectedEvent') {
+            displayMsg(`${msg.from} disconnected`);
+        }
+    };
+  }
+
+  function displayMsg(msg) {
+    const notification = document.querySelector('.notification');
+        const listItem = document.createElement('li');
+        listItem.textContent = msg;
+        notification.appendChild(listItem);
+  }
+  function broadcastEvent(from, type, value) {
+    const event = {
+      from: from,
+      type: type,
+      value: value,
+    };
+    socket.send(JSON.stringify(event));
+  }
 });
+
