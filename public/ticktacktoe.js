@@ -3,16 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let cells; 
     let socket;
 
-    // setInterval(() => {
-    //     const players = ['Lee','Billy','Max','James','Alison','Shaniqua']; // Add more player names as needed
-    //     const randomPlayerIndex = Math.floor(Math.random() * players.length);
-    //     const randomPlayer = players[randomPlayerIndex];
-    //     const notification = document.querySelector('.notification');
-    //     const message = `${randomPlayer} won!`;
-    //     const listItem = document.createElement('li');
-    //     listItem.textContent = message;
-    //     notification.appendChild(listItem);
-    // }, 4000); 
     configureWebSocket();
     function initGame() {
         currentPlayer = 'X'; 
