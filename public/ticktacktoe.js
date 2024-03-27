@@ -140,10 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const winStatus = msg.value.win ? 'won' : 'lost';
             console.log('win status:', winStatus);
             displayMsg(`${msg.from} has ${winStatus}!`);
-        } else if (msg.type === 'PlayerConnectedEvent') {
-            displayMsg(`${msg.from} connected`);
-        } else if (msg.type === 'PlayerDisconnectedEvent') {
-            displayMsg(`${msg.from} disconnected`);
         }
     };
   }
