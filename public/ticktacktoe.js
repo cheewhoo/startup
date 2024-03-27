@@ -132,9 +132,13 @@ document.addEventListener('DOMContentLoaded', function() {
       displayMsg('system', 'game', 'disconnected');
     };
     socket.onmessage = async (event) => {
+        console.log('message recieved:', event.data);
         const msg = JSON.parse(await event.data.text());
+        console.log('parsed message:', msg);
         if (msg.type === 'GameEndEvent') {
+            console.log('game and event recieved');
             const winStatus = msg.value.win ? 'won' : 'lost';
+            console.log('win status:', winStatus);
             displayMsg(`${msg.from} has ${winStatus}!`);
         } else if (msg.type === 'PlayerConnectedEvent') {
             displayMsg(`${msg.from} connected`);
