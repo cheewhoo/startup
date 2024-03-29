@@ -64,3 +64,7 @@ For the services on my startup I:
 * I removed the temporary database from local storage and made a real one in mongodb to hold usernames, passwords, tokens, and scores
 * I made endpoints to link the front and back end to ensure the database creates an account and updates the scores whenever someone loses or wins
 * The login page sucessfully prevents users from logging in if their isn't an account in the system
+
+## startup websocket
+* created a peerProxy that connects to the main game through my server.
+* websocket checks for endgame events and sends a message to all current players about who has won
