@@ -71,10 +71,12 @@ document.addEventListener('DOMContentLoaded', function() {
             message = `${playerName} wins!`;
             winbool = true;
             localStorage.setItem(`${playerName}_wins`, wins);
+            broadcastEvent(playerName, 'GameEndEvent', { win: winbool });
         } else if (currentPlayer === 'O' && checkWin()) {
             message = `${playerName} lost!`;
             winbool = false
             localStorage.setItem(`${playerName}_losses`, losses);
+            broadcastEvent(playerName, 'GameEndEvent', { win: winbool });
         } else if (checkDraw()) {
             message = "It's a draw!";
         }
@@ -126,9 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     socket.onopen = (event) => {
+        console.log('websocket connection open');
       displayMsg('system', 'game', 'connected');
     };
     socket.onclose = (event) => {
+        console.log('websocket closed');
       displayMsg('system', 'game', 'disconnected');
     };
     socket.onmessage = async (event) => {
@@ -136,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const msg = JSON.parse(await event.data.text());
         console.log('parsed message:', msg);
         if (msg.type === 'GameEndEvent') {
-            console.log('game and event recieved');
+            console.log('game event recieved');
             const winStatus = msg.value.win ? 'won' : 'lost';
             console.log('win status:', winStatus);
             displayMsg(`${msg.from} has ${winStatus}!`);
