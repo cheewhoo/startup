@@ -12,7 +12,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.set('trust proxy', true);
 const authCookieName = 'token';
-const { peerProxy } = require('./peerProxy.js');
 
 
 app.get('/score/:playerName', async (req, res)=>{
@@ -84,7 +83,6 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-const httpService = app.listen(PORT, () => {
 const httpService = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
