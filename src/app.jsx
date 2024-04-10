@@ -44,9 +44,9 @@ export default function App() {
       
         <Routes>
           <Route path='/' element={<Login/>} exact />
-          {/* <Route path='/createaccount' element={<CreateAccount />} />
-          <Route path='/scores' element={<Scores />} />
-          <Route path='/play' element={<Play />} /> */}
+          {/* <Route path='/createaccount' element={<CreateAccount />} /> */}
+          {/* <Route path='/scores' element={<Scores />} /> */}
+          {/* <Route path='/play' element={<Play />} /> */}
         </Routes>
 
         <footer>
