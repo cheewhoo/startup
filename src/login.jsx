@@ -2,9 +2,11 @@
 
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './app.css';
 
 export default function Login() {
+  const navigate = useNavigate(); // Initialize navigate
 
   const handleLoginFormSubmit = async (event) => {
     event.preventDefault(); 
@@ -29,8 +31,7 @@ export default function Login() {
             const data = await response.json();
             localStorage.setItem('username', username); 
             console.log("logged in :)")
-            // use navigate
-
+            navigate('/play'); // Navigate to the play page after successful login
         } else {
             const errorData = await response.json();
             alert(errorData.msg || 'Login failed');
