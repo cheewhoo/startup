@@ -105,19 +105,7 @@ export default function Play() {
 
   return (
     <div>
-      <header>
-        <h1>XGridO</h1>
-        <nav>
-          <menu>
-            <ul className="button-menu">
-              <li><NavLink to='/'>Home</NavLink></li>
-              <li><NavLink to='/createaccount'>Create Account</NavLink></li>
-              <li><NavLink to='/scores'>Scores</NavLink></li>
-              <li><NavLink to='/play'>Play</NavLink></li>
-            </ul>
-          </menu>
-        </nav>
-      </header>
+      
 
       <main>
         <div className="players">
