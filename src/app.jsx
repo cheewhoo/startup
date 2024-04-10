@@ -10,7 +10,7 @@ import Play from './play.jsx';
 export default function App() {
   return (
     <BrowserRouter>
-        <header>
+        {/* <header>
           <h1>XGridO</h1>
           <nav>
             <menu className='navbar-nav'>
@@ -40,7 +40,20 @@ export default function App() {
               </li>
             </menu>
           </nav>
-        </header>
+        </header> */}
+        <header>
+        <h1>XGridO</h1>
+        <nav>
+          <menu>
+            <ul className="button-menu">
+              <li><NavLink to='/'>Home</NavLink></li>
+              <li><NavLink to='/createaccount'>Create Account</NavLink></li>
+              <li><NavLink to='/scores'>Scores</NavLink></li>
+              <li><NavLink to='/play'>Play</NavLink></li>
+            </ul>
+          </menu>
+        </nav>
+      </header>
       
         <Routes>
           <Route path='/' element={<Login/>} exact />
