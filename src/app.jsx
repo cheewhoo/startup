@@ -1,24 +1,9 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './app.css';
+import Login from './login.jsx';
 
 export default function App() {
   return (
     <div>
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" type="text/css" href="styles.css" />
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-          crossOrigin="anonymous"
-        />
-        <link href="https://getbootstrap.com/docs/5.1/assets/css/docs.css" rel="stylesheet" />
-        <title>startup-xgrido</title>
-      </head>
-      <body>
         <header>
           <h1>XGridO</h1>
           <nav>
@@ -32,16 +17,17 @@ export default function App() {
             </menu>
           </nav>
         </header>
-      </body>
+      
+        <main>
+          <Login />
+        </main>
 
-      <main>App components go here</main>
-
-      <footer>
-        <hr />
-        <span class="text-reset">Mykle Keni</span>
-        <br />
-        <a href="https://github.com/cheewhoo/startup/tree/main">GitHub</a>
-      </footer>
+        <footer>
+          <hr />
+          <span class="text-reset">Mykle Keni</span>
+          <br />
+          <a href="https://github.com/cheewhoo/startup/tree/main">GitHub</a>
+        </footer>
     </div>
     
 
