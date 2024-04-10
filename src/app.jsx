@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import Login from './login.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './app.css';
+import './app.css';
 // import Play from './play.jsx';
 // import Scores from './scores.jsx';
 // import CreateAccount from './account.jsx';
@@ -44,8 +44,8 @@ export default function App() {
       
         <Routes>
           <Route path='/' element={<Login/>} exact />
-          {/* <Route path='/createaccount' element={<CreateAccount />} /> */}
-          {/* <Route path='/scores' element={<Scores />} />
+          {/* <Route path='/createaccount' element={<CreateAccount />} />
+          <Route path='/scores' element={<Scores />} />
           <Route path='/play' element={<Play />} /> */}
         </Routes>
 
