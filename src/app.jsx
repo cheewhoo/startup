@@ -8,6 +8,7 @@ import Scores from './scores.jsx';
 import CreateAccount from './account.jsx';
 
 export default function App() {
+  const username = localStorage.getItem('username');
   return (
     <BrowserRouter>
         {/* <header>
@@ -59,7 +60,8 @@ export default function App() {
           <Route path='/' element={<Login/>} exact />
           <Route path='/createaccount' element={<CreateAccount />} />
           <Route path='/scores' element={<Scores />} />
-          <Route path='/play' element={<Play />} />
+          {/* <Route path='/play' element={<Play />} /> */}
+          <Route path='/play' element={<Play username={username} />} />
         </Routes>
 
         <footer>
