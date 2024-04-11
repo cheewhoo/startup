@@ -68,3 +68,7 @@ For the services on my startup I:
 ## startup websocket
 * created a peerProxy that connects to the main game through my server.
 * websocket checks for endgame events and sends a message to all current players about who has won
+
+## react
+* recreated everything using react
+* added vite and made routes to each page
