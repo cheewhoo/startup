@@ -59,7 +59,8 @@
 //     </div>
 //   );
 // }
-// Login.jsx
+
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './app.css';
@@ -102,6 +103,10 @@ export default function Login() {
     }
   };
 
+  const handleCreateAccountClick = () => {
+    navigate('/createaccount');
+  };
+
   return (
     <div>
       <h1>Are You Ready To Play?</h1>
@@ -113,9 +118,7 @@ export default function Login() {
         <button type="submit" style={{ color: 'black' }}>Login</button>
       </form>
       <h3>or</h3>
-      <form method="get" action="account.html">
-        <button type="submit" style={{ color: 'black' }}>Create an Account</button>
-      </form>
+      <button onClick={handleCreateAccountClick} style={{ color: 'black' }}>Create an Account</button>
     </div>
   );
 }
